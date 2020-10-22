@@ -9,13 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
 
-    private ArrayList<String> mData = null ;
+    private List<MemoEntity> mData = null ;
 
     // 생성자에서 데이터 리스트 객체를 전달받음.
-    MemoAdapter(ArrayList<String> list) {
+    MemoAdapter(List<MemoEntity> list) {
         mData = list ;
     }
 
@@ -28,8 +29,8 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String text = mData.get(position) ;
-        holder.title.setText(text) ;
+        holder.title.setText(mData.get(position).title);
+        holder.content.setText(mData.get(position).content);
     }
 
     @Override
@@ -40,6 +41,7 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title = itemView.findViewById(R.id.title);
+        TextView content = itemView.findViewById(R.id.content);
 
         ViewHolder(View itemView) {
             super(itemView) ;
