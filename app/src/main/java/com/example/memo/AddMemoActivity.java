@@ -36,14 +36,16 @@ public class AddMemoActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                Intent i = new Intent(getApplicationContext(), MainActivity.class); //새로운 액티비티로 넘어가기 위한 변수
+                startActivity(i); //새 액티비티 띄우기
+                finishAffinity();
             }
         });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(addTitle.getText() == null || addContent.getText() == null)
+                if(addTitle.getText() == null || addContent.getText() == null || addTitle.getText().toString().equals("") || addContent.getText().toString().equals(""))
                 {
                     Toast.makeText(getApplicationContext(),"빈 값을 저장할 수 없습니다.", Toast.LENGTH_SHORT).show();
                 }
@@ -58,7 +60,7 @@ public class AddMemoActivity extends AppCompatActivity {
 
                     Intent i = new Intent(getApplicationContext(), MainActivity.class); //새로운 액티비티로 넘어가기 위한 변수
                     startActivity(i); //새 액티비티 띄우기
-                    finish();
+                    finishAffinity();
                 }
             }
         });
