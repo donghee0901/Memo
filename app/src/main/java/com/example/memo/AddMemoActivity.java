@@ -56,11 +56,10 @@ public class AddMemoActivity extends AppCompatActivity {
                         test.title = addTitle.getText().toString();
                         test.content = addContent.getText().toString();
                         db.memoDao().insert(test);
+                        Intent i = new Intent(getApplicationContext(), MainActivity.class); //새로운 액티비티로 넘어가기 위한 변수
+                        startActivity(i); //새 액티비티 띄우기
+                        finishAffinity();
                     }).start();
-
-                    Intent i = new Intent(getApplicationContext(), MainActivity.class); //새로운 액티비티로 넘어가기 위한 변수
-                    startActivity(i); //새 액티비티 띄우기
-                    finishAffinity();
                 }
             }
         });

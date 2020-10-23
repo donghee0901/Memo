@@ -54,13 +54,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-//        Toast.makeText(this, "ssdfsdfds", Toast.LENGTH_SHORT).show();
-//        new Thread(() -> {
-//            Toast.makeText(this, "ssdfsdfds", Toast.LENGTH_SHORT).show();
-//            MemoData = db.memoDao().getMemoAll();
-//            adapter.notifyDataSetChanged(); // adapter 새로고침
-//        }).start();
-
     }
 }
