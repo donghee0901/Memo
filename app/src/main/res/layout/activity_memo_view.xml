@@ -30,7 +30,7 @@
     </FrameLayout>
 
     <TextView
-        android:id="@+id/add_title"
+        android:id="@+id/view_title"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="10dp"
@@ -41,7 +41,7 @@
         />
 
     <TextView
-        android:id="@+id/add_content"
+        android:id="@+id/view_content"
         android:layout_width="match_parent"
         android:layout_height="500dp"
         android:layout_marginHorizontal="10dp"

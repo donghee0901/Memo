@@ -1,5 +1,6 @@
 package com.example.memo;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,8 +44,18 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
         TextView title = itemView.findViewById(R.id.title);
         TextView content = itemView.findViewById(R.id.content);
 
+
         ViewHolder(View itemView) {
             super(itemView) ;
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(itemView.getContext(), MemoViewActivity.class);
+                    itemView.getContext().startActivity(i); //새 액티비티 띄우기
+                }
+            });
+
         }
 
     }
