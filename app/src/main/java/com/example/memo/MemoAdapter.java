@@ -1,6 +1,7 @@
 package com.example.memo;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.title.setText(mData.get(position).title);
         holder.content.setText(mData.get(position).content);
+        holder.ID.setText(Integer.toString(mData.get(position).id));
     }
 
     @Override
@@ -43,6 +45,7 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView title = itemView.findViewById(R.id.title);
         TextView content = itemView.findViewById(R.id.content);
+        TextView ID = itemView.findViewById(R.id.ID);
 
 
         ViewHolder(View itemView) {
@@ -52,6 +55,9 @@ public class MemoAdapter extends RecyclerView.Adapter<MemoAdapter.ViewHolder> {
                 @Override
                 public void onClick(View v) {
                     Intent i = new Intent(itemView.getContext(), MemoViewActivity.class);
+                    i.putExtra("title",title.getText().toString());
+                    i.putExtra("content",content.getText().toString());
+                    i.putExtra("id",ID.getText().toString());
                     itemView.getContext().startActivity(i); //새 액티비티 띄우기
                 }
             });
