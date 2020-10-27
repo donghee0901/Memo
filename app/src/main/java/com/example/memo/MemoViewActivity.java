@@ -12,6 +12,8 @@ import android.widget.EditText;
 
 public class MemoViewActivity extends AppCompatActivity {
     MemoDatabase db;
+
+    Button back;
     Button modify_button;
     Button delete_button;
 
@@ -27,10 +29,11 @@ public class MemoViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memo_view);
 
-        db  = Room.databaseBuilder(getApplicationContext(), MemoDatabase.class, "database-name").build();
+        db  = MemoDatabase.getInstance(getApplicationContext());
 
         Intent i = getIntent();
 
+        back = findViewById(R.id.back);
         modify_button = findViewById(R.id.modify_button);
         delete_button = findViewById(R.id.delete_button);
         viewTitle = findViewById(R.id.view_title);
@@ -74,6 +77,14 @@ public class MemoViewActivity extends AppCompatActivity {
                     startActivity(i); //새 액티비티 띄우기
                     finishAffinity();
                 }).start();
+            }
+        });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class); //새로운 액티비티로 넘어가기 위한 변수
+                startActivity(i); //새 액티비티 띄우기
+                finishAffinity();
             }
         });
     }

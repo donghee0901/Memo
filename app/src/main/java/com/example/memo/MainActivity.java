@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        db  = Room.databaseBuilder(getApplicationContext(), MemoDatabase.class, "database-name").build();
+        db  = MemoDatabase.getInstance(getApplicationContext());
 
 
 //        new Thread(() ->{

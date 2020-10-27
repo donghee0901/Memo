@@ -31,7 +31,7 @@ public class AddMemoActivity extends AppCompatActivity {
         addTitle = findViewById(R.id.add_title);
         addContent = findViewById(R.id.add_content);
 
-        db  = Room.databaseBuilder(getApplicationContext(), MemoDatabase.class, "database-name").build();
+        db  = MemoDatabase.getInstance(getApplicationContext());
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,19 +52,10 @@ public class AddMemoActivity extends AppCompatActivity {
                 else{
                     new Thread(() -> {
                         MemoEntity test = new MemoEntity();
-                        boolean isTry = true;
                         test.id = 0;
                         test.title = addTitle.getText().toString();
                         test.content = addContent.getText().toString();
-                        while (isTry){
-                            try {
-                                db.memoDao().insert(test);
-                                isTry = false;
-                            } catch (Exception e) {
-                                test.id++;
-                                isTry = true;
-                            }
-                        }
+                        db.memoDao().insert(test);
                         Intent i = new Intent(getApplicationContext(), MainActivity.class); //새로운 액티비티로 넘어가기 위한 변수
                         startActivity(i); //새 액티비티 띄우기
                         finishAffinity();

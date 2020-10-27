@@ -20,6 +20,9 @@ public interface MemoDao {
     @Query("SELECT count(*) FROM MemoEntity")
     int getCount();
 
+    @Query("SELECT max(id) FROM MemoEntity")
+    int getMaxCount();
+
     @Query("DELETE FROM MemoEntity")
     void deleteAll();
 
