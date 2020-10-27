@@ -48,7 +48,7 @@
         android:padding="10dp"
         android:gravity="center_vertical"
         android:background="@drawable/background"
-        android:hint="제목을 입력하세요."
+        android:hint="내용을 입력하세요."
         />
 
     <LinearLayout

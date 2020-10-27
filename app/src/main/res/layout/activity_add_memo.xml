@@ -46,7 +46,7 @@
         android:layout_marginHorizontal="10dp"
         android:padding="10dp"
         android:background="@drawable/background"
-        android:hint="제목을 입력하세요."
+        android:hint="내용을 입력하세요."
         />
 
     <Button
